@@ -68,13 +68,15 @@ import argparse
 import pytorch_lightning as pl
 from omegaconf import OmegaConf
 
-from ctc_bpe_models import EncDecCTCModelBPE
 from nemo.core.config import hydra_runner
 from nemo.utils import logging
 from nemo.utils.exp_manager import exp_manager
 
+from model.ctc_bpe_models import EncDecCTCModelBPE
 
-# @hydra_runner(config_path="../conf/citrinet/", config_name="config_bpe")
+
+
+@hydra_runner(config_path="config", config_name="conformer_ctc_bpe")
 def main(cfg):
     logging.info(f'Hydra config: {OmegaConf.to_yaml(cfg)}')
 
@@ -93,10 +95,11 @@ def main(cfg):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--config", type=str,
-                        help="Config file (.yaml) path")
-    args = parser.parse_args()
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument("--config_path", type=str,
+    #                     help="Config file (.yaml) path")
+    # parser.add_argument("--config_name", type=str, default="config_bpe",
+    #                     help="Config file (.yaml) name")
+    # args = parser.parse_args()
 
-    cfg = OmegaConf.load(args.config)
-    main(cfg)
+    main()
