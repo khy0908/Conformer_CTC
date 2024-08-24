@@ -5,7 +5,7 @@ This code is based on NVIDIA NeMo.
 ## Set environment
 Install pytorch
 ```shell
-conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+git clone 
 ```
 Install nemo_toolkit
 ```shell
